@@ -1,0 +1,45 @@
+/*
+ * File: /src/components/pages/Home/Header/styles.scss
+ * Created Date: Monday, January 15th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Mon Jan 15 2024
+ * Modified By: Nathan Coquelin
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+@import '../../../../sass/main.scss';
+
+.header {
+  width: min(var(--content-width), calc(100% - 4rem));
+  padding-top: 27rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  &__title {
+    position: absolute;
+    color: var(--color-text);
+    top: 18rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $title-font;
+    font-weight: 400;
+    font-size: 4rem;
+  }
+  &__left {
+    width: 60%;
+  }
+  &__right {
+    width: 40%;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

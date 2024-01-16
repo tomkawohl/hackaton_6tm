@@ -1,0 +1,47 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(6rem);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6rem);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.imgLoad {
+  animation: 0.5s ease-in-out 0.8s fade-in;
+}
+
+@keyframes width-animation {
+  0% {
+    width: max-content;
+  }
+
+  30% {
+    width: 10rem;
+  }
+
+  100% {
+    width: 10rem;
+  }
+}

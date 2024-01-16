@@ -1,0 +1,43 @@
+/*
+ * File: \src\component\Description\style.scss
+ * Created Date: Friday, November 17th 2023
+ * Author: NathanCoquelin
+ * -----
+ * Last Modified: Mon Jan 15 2024
+ * Modified By: Nathan Coquelin
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+@import '../../../sass/main.scss';
+
+.description {
+  display: block;
+  margin: 1rem auto 1rem auto;
+  & p {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    line-height: 1.3;
+  }
+  &__word {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--color-text);
+    font-family: $title-font;
+    font-weight: $title-font-weight;
+    display: block;
+    transform: translateY(100%);
+  }
+  &__mask {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+  }
+}

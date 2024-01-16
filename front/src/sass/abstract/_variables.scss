@@ -1,0 +1,52 @@
+/*
+ * File: /src/sass/abstract/_variables.scss
+ * Created Date: Monday, January 15th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Mon Jan 15 2024
+ * Modified By: Nathan Coquelin
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+$title-font: 'Poppins', 'sans-serif';
+$title-font-weight: 400;
+
+$base-font: 'Roboto', 'sans-serif';
+$base-font-weight: 300;
+
+:root {
+  --color-primary: #677eef;
+  --color-text: #fafafa;
+  --color-bg: #1f1f1f;
+
+  --color-white: #fefefe;
+  --color-white-accent-light: #f7f7f7;
+  --color-white-accent-dark: #d5d5d5;
+  --color-black: #222222;
+
+  --color-grey-dark-01: #1e1e1e;
+  --color-grey-dark-02: #232323;
+  --color-grey-dark-03: #2d2d2d;
+  --color-grey-dark-04: #333333;
+  --color-grey-dark-05: #383838;
+  --color-grey-dark-06: #3d3d3d;
+  --color-grey-dark-07: #505050;
+  --color-grey-dark-08: #646464;
+
+  --color-grey-light-01: #f8f8f8;
+  --color-grey-light-02: #f1f1f1;
+  --color-grey-light-03: #ebebeb;
+  --color-grey-light-04: #e4e4e4;
+  --color-grey-light-05: #dedede;
+  --color-grey-light-06: #d7d7d7;
+  --color-grey-light-07: #d0d0d0;
+  --color-grey-light-08: #cacaca;
+  --color-grey-light-09: #c3c3c3;
+  --color-grey-light-10: #bdbdbd;
+
+  --content-width: 1100px;
+  --section-border-radius: 8px;
+}

@@ -1,0 +1,52 @@
+/*
+ * File: /src/components/UI/SearchBar/style.scss
+ * Created Date: Monday, January 15th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Mon Jan 15 2024
+ * Modified By: Nathan Coquelin
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+@import '../../../sass/main.scss';
+
+.search-bar {
+  width: min(calc(100% - 4rem), 60rem);
+  height: 4.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin: 8rem auto 0 auto;
+  padding: 0 0.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.07);
+  &__icon-left {
+    color: var(--color-text);
+    font-size: 2.5rem;
+  }
+  &__text-input {
+    border: none;
+    flex-grow: 1;
+    height: 100%;
+    font-size: 2rem;
+    padding: 0 1rem;
+    background-color: transparent;
+    color: var(--color-text);
+    &:active,
+    &:focus,
+    &:target,
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
+  }
+  &__delete {
+    font-size: 2.8rem;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+}

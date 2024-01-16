@@ -1,0 +1,11 @@
+@import 'base/typography';
+
+@import 'abstract/mixins';
+@import 'abstract/variables';
+
+@import 'base/base';
+@import 'base/animations';
+
+.container {
+  background-color: var(--color-bg);
+}
