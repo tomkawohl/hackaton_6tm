@@ -28,7 +28,8 @@
       "@utils/*": ["utils/*"],
       "@interfaces/*": ["interfaces/*"],
       "@data/*": ["data/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"],

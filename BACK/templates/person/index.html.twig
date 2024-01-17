@@ -1,0 +1,15 @@
+{# templates/person/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Persons</h1>
+
+    <ul>
+        {% for person in persons %}
+            <li>{{ person.nom }} {{ person.prenom }} - {{ person.poste }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('person_create') }}">Ajouter une Person</a>
+{% endblock %}

@@ -3,8 +3,8 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Mon Jan 15 2024
- * Modified By: Nathan Coquelin
+ * Last Modified: Tue Jan 16 2024
+ * Modified By: liber4lis
  * -----
  * HISTORY:
  * Date      	By	Comments
@@ -14,7 +14,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Home } from '@routes/index';
-import { Footer } from '@components/index';
 
 function App() {
   return (

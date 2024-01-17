@@ -1,0 +1,7 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+    entities:
+        - class: App\Entity\Person
+          label: 'Person'
+          # Configure other options for this entity
+    allow_all_actions: true

@@ -15,6 +15,7 @@ import React from 'react';
 import './style.scss';
 import { IoSearch } from 'react-icons/io5';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { useSearchLoading } from '@hooks/index';
 
 type Props = {
   input: string;
@@ -22,27 +23,36 @@ type Props = {
 };
 
 const SearchBar = ({ input, setInput }: Props) => {
-  const updateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
+  const { isLoading, handleInputChange, inputValue, setInputValue } =
+    useSearchLoading({
+      initialValue: 'empty',
+    });
+
   return (
-    <>
-      <div className="search-bar">
+    <div className="search-bar__container">
+      <div className={`search-bar`}>
         <IoSearch className="search-bar__icon-left" />
         <input
-          className="search-bar__text-input"
-          onChange={updateInput}
+          className={`search-bar__text-input`}
+          onChange={handleInputChange}
           type="text"
-          value={input}
+          value={inputValue}
         />
-        {input.length != 0 && (
+        {inputValue.length != 0 && (
           <IoIosCloseCircleOutline
             className="search-bar__delete"
-            onClick={() => setInput('')}
+            onClick={() => {
+              setInputValue('');
+            }}
           />
         )}
       </div>
-    </>
+      {inputValue.length !== 0 ? (
+        <div className={`search-bar__loader ${isLoading}`} />
+      ) : (
+        <div className="search-bar__loader"></div>
+      )}
+    </div>
   );
 };
 

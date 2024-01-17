@@ -14,12 +14,16 @@
 @import '../../../sass/main.scss';
 
 .search-bar {
-  width: min(calc(100% - 4rem), 60rem);
+  &__container {
+    width: min(calc(100% - 4rem), 60rem);
+    margin: 8rem auto 0 auto;
+    overflow: hidden;
+    border-radius: 0 0 15px 15px;
+  }
   height: 4.5rem;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  margin: 8rem auto 0 auto;
   padding: 0 0.8rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -48,5 +52,43 @@
     font-size: 2.8rem;
     color: var(--color-text);
     cursor: pointer;
+  }
+  &__loader {
+    width: 0;
+    height: 3px;
+    display: block;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.2s ease-in-out;
+    border-radius: 3px;
+    opacity: 1;
+    &.empty {
+      width: 0px;
+    }
+    &.loading {
+      width: 80%;
+    }
+    &.loaded {
+      animation: loaded-search 1s;
+    }
+    &.writting {
+      width: 0;
+    }
+  }
+}
+
+@keyframes loaded-search {
+  0% {
+    width: 80%;
+    opacity: 1;
+  }
+
+  40% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
   }
 }

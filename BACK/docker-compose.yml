@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  symfony:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - /var/www/html
+    depends_on:
+      - db
+    networks:
+      - symfony_network
+    restart: always
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: your_database_user
+      MYSQL_PASSWORD: your_database_password
+    ports:
+      - "3306:3306"
+    networks:
+      - symfony_network
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8081:80"
+    networks:
+      - symfony_network
+    depends_on:
+      - db
+    command: ["apache2", "-D", "FOREGROUND"]
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      PMA_ARBITRARY: 1
+      APACHE_RUN_USER: www-data
+      APACHE_RUN_GROUP: www-data
+      APACHE_PID_FILE: /var/run/apache2/apache2.pid
+      APACHE_RUN_DIR: /var/run/apache2
+      APACHE_LOCK_DIR: /var/lock/apache2
+      APACHE_LOG_DIR: /var/log/
+
+    restart: always
+
+networks:
+  symfony_network:
+    driver: bridge
+
+volumes:
+  mysql_data:

@@ -1,0 +1,34 @@
+/*
+ * File: /src/components/UI/UserCards/UserCardItem/ProfileName/styles.scss
+ * Created Date: Tuesday, January 16th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Tue Jan 16 2024
+ * Modified By: liber4lis
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+.user-card__profile-name {
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px 5px 0 0;
+  width: 15rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+  &.hide {
+    bottom: -10rem;
+  }
+}

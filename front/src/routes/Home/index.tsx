@@ -3,8 +3,8 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Mon Jan 15 2024
- * Modified By: Nathan Coquelin
+ * Last Modified: Tue Jan 16 2024
+ * Modified By: liber4lis
  * -----
  * HISTORY:
  * Date      	By	Comments
@@ -12,7 +12,9 @@
  */
 
 import { useState } from 'react';
-import { Footer, HomeHeader, SearchBar } from '@components/index';
+import { Footer, HomeHeader, SearchBar, UserCards } from '@components/index';
+
+import { default as data } from '@data/data.json';
 
 const Home = () => {
   const [input, setInput] = useState<string>('');
@@ -20,7 +22,7 @@ const Home = () => {
     <>
       <HomeHeader />
       <SearchBar input={input} setInput={setInput} />
-      {/* <UserCards /> */}
+      <UserCards data={data} />
       <Footer />
     </>
   );

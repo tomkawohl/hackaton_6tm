@@ -1,0 +1,22 @@
+/*
+ * File: /src/components/UI/UserCards/UserCardItem/ProfilePicture/styles.scss
+ * Created Date: Tuesday, January 16th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Tue Jan 16 2024
+ * Modified By: liber4lis
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+.user-card__profile-picture {
+  z-index: 0;
+  &--img {
+    height: 40rem;
+    position: absolute;
+    left: -2rem;
+    top: 0;
+  }
+}
