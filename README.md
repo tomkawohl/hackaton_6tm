@@ -22,7 +22,7 @@ All you need is : <br>
 * Clone the repository:<br>
 `git clone git@github.com:EpitechPromo2027/B-EPI-310-REN-3-1-hackathonweek-martin.bellot.git`
 * Run the environment:<br>
-`docker compose up --build`
+`docker-compose up --build`
 
 * When running the environment for the first time, you need to initialize the database by doing: <br>
 - [ON OTHER TERMINAL] <br>
