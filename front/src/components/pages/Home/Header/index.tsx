@@ -3,22 +3,25 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
- * Modified By: Nathan Coquelin
+ * Last Modified: Thu Jan 18 2024
+ * Modified By: liber4lis
  * -----
  * HISTORY:
  * Date      	By	Comments
  * ----------	---	--------------------------------
  */
 
+import React from 'react';
+
 import { Description } from '@components/UI';
 import './styles.scss';
 import NavBar from '@components/UI/Nav/NavBar';
+import { useTheme } from '@context/ThemeProvider';
 
 const Header = () => {
+  const { toggleTheme } = useTheme();
   return (
     <>
-      <NavBar />
       <div className="header">
         <div className="header__title">Notre équipe</div>
         <div className="header__left">

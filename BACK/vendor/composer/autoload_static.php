@@ -98,6 +98,10 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
             'PhpParser\\' => 10,
             'Pentatrion\\ViteBundle\\' => 22,
         ),
+        'N' => 
+        array (
+            'Nelmio\\CorsBundle\\' => 18,
+        ),
         'M' => 
         array (
             'Metadata\\' => 9,
@@ -386,6 +390,10 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         'Pentatrion\\ViteBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/pentatrion/vite-bundle/src',
+        ),
+        'Nelmio\\CorsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
         ),
         'Metadata\\' => 
         array (

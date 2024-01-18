@@ -1,0 +1,44 @@
+/*
+ * File: /src/components/UI/Curve/style.scss
+ * Created Date: Thursday, January 18th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Thu Jan 18 2024
+ * Modified By: liber4lis
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+.curve {
+  z-index: 10000;
+  svg,
+  .background {
+    position: fixed;
+    height: calc(100vh + 600px);
+    width: 100vw;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+  }
+  .background {
+    background-color: #1f1f1f;
+    transition: opacity 0s linear 0.1s;
+  }
+  .route {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    color: white;
+    font-size: 46px;
+    z-index: 3;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1000000;
+    &__img {
+      width: 80vw;
+    }
+  }
+}

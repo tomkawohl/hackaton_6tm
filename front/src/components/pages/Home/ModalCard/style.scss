@@ -1,0 +1,68 @@
+/*
+ * File: /src/components/pages/Home/ModalCard/style.scss
+ * Created Date: Thursday, January 18th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Thu Jan 18 2024
+ * Modified By: Nathan Coquelin
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+@import '../../../../sass/main.scss';
+
+.bg {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  background-color: var(--color-accent-2);
+  width: min(80rem, calc(100% - 4rem));
+  height: min(40rem, calc(100vh - 4rem));
+  border-radius: 10px;
+  border: 1px solid var(--color-accent-1);
+  z-index: 1000000000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 30rem;
+  &__right {
+    &--cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem 0rem;
+      &--item {
+        background-color: white;
+        border: 1px solid #e1e1e1;
+        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        &--icon {
+          color: var(--color-primary);
+          font-size: 2.3rem;
+        }
+        &--text {
+          color: black;
+        }
+      }
+    }
+    &--description {
+      color: var(--color-text);
+      font-size: 2rem;
+    }
+  }
+}

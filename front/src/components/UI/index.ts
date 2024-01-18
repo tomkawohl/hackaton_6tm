@@ -3,7 +3,7 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Tue Jan 16 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: liber4lis
  * -----
  * HISTORY:
@@ -16,3 +16,4 @@ export { default as Description } from './Description';
 export { default as SearchBar } from './SearchBar';
 export { default as Footer } from './Footer';
 export { default as UserCards } from './UserCards';
+export { default as Curve } from './Curve';

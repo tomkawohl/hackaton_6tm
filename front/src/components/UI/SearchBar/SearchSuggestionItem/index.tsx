@@ -3,7 +3,7 @@
  * Created Date: Wednesday, January 17th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: liber4lis
  * -----
  * HISTORY:
@@ -22,9 +22,14 @@ import './styles.scss';
 type Props = {
   data: { type: string; suggestion: string; distance: number };
   setInput: React.Dispatch<string>;
+  setIsSuggestionOpen: React.Dispatch<boolean>;
 };
 
-const SearchSuggestionItem = ({ data, setInput }: Props) => {
+const SearchSuggestionItem = ({
+  data,
+  setInput,
+  setIsSuggestionOpen,
+}: Props) => {
   let icon;
   if (data.type === 'agence')
     icon = <IoLocationSharp className="search__suggestions--item--icon" />;
@@ -37,7 +42,10 @@ const SearchSuggestionItem = ({ data, setInput }: Props) => {
   return (
     <div
       className="search__suggestions--item"
-      onClick={() => setInput(data.suggestion)}
+      onClick={() => {
+        setInput(data.suggestion);
+        setIsSuggestionOpen(false);
+      }}
     >
       {icon}
       <p className="search__seggestions--item--text">{data.suggestion}</p>

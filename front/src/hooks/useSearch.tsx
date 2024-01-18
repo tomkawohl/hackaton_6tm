@@ -3,7 +3,7 @@
  * Created Date: Wednesday, January 17th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -19,9 +19,8 @@ import { default as data } from '@data/data.json';
 import { wait } from '@utils/wait';
 
 const useSearch = () => {
-  // const [users, setUsers] = useState<UserCardI[]>(data);
-  const users = data;
-  const [filteredUsers, setFilteredUsers] = useState<UserCardI[]>(data);
+  const [users, setUsers] = useState<UserCardI[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<UserCardI[]>([]);
   const [search, setSearch] = useState<string>('');
   const [isLoading, setIsLoading] = useState<
     'empty' | 'loading' | 'loaded' | 'writting'
@@ -29,6 +28,8 @@ const useSearch = () => {
   const [suggestions, setSuggestions] = useState<
     { type: string; suggestion: string; distance: number }[]
   >([]);
+  const [isSuggestionOpen, setIsSuggestionOpen] = useState<boolean>(false);
+  const [currentUser, setCurrentUser] = useState<UserCardI | null>(null);
 
   let timer: ReturnType<typeof setTimeout>;
   const resetTimer = () => {
@@ -44,6 +45,7 @@ const useSearch = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     resetTimer();
+    setIsSuggestionOpen(true);
     setIsLoading('writting');
     setSearch(e.target.value);
     handleSearch();
@@ -71,6 +73,8 @@ const useSearch = () => {
 
   const searchUsers = (query: string, haystack: UserCardI[]) => {
     const minDist = 4;
+
+    if (haystack.length === 0) return;
 
     const distances: {
       user: UserCardI;
@@ -162,6 +166,22 @@ const useSearch = () => {
     };
   }, [search]);
 
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/employees');
+        const data = await response.json();
+        setUsers(data);
+        setFilteredUsers(data);
+        setIsLoading('loaded'); // Set loading state after successful data fetch
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    getUsers();
+  }, []);
+
   return {
     filteredUsers,
     searchUsers,
@@ -170,6 +190,10 @@ const useSearch = () => {
     isLoading,
     handleInputChange,
     suggestions,
+    isSuggestionOpen,
+    setIsSuggestionOpen,
+    currentUser,
+    setCurrentUser,
   };
 };
 

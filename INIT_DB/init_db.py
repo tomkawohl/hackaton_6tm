@@ -21,7 +21,7 @@ def insert_data_into_database(data):
     cursor = connection.cursor()
 
     notes = [3, 4, 5]
-    commentary = ["cela est un commentaire", "ceci est un commentaire", "le super commentaire"]
+    commentary = ["un commentaire", "un autre commentaire", "un commentaire 2"]
     visited = [7, 9, 17]
     i = 0
     # Insertion des données dans la table
@@ -44,6 +44,21 @@ def insert_data_into_database(data):
             notes[i],
             visited[i],
         ))
+
+        if personne.get('photo_pro', ''):
+            cursor.execute('''
+                UPDATE person
+                SET photo_pro = %s
+                WHERE nom = %s AND prenom = %s
+            ''', (f"http://localhost:8000/photos/pro/{personne['nom']}-{personne['prenom']}_pro.png", personne['nom'], personne['prenom']))
+
+        if personne.get('photo_fun', ''):
+            cursor.execute('''
+                UPDATE person
+                SET photo_fun = %s
+                WHERE nom = %s AND prenom = %s
+            ''', (f"http://localhost:8000/photos/fun/{personne['nom']}-{personne['prenom']}_fun.png", personne['nom'], personne['prenom']))
+
 
     # Commit et fermeture de la connexion
     connection.commit()

@@ -3,7 +3,7 @@
  * Created Date: Wednesday, January 17th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -11,60 +11,90 @@
  * ----------	---	--------------------------------
  */
 
+import React, { useEffect, useRef } from 'react';
+
 import styled from 'styled-components';
 import { default as theme } from '../../theme/theme';
 import { useNavigate } from 'react-router-dom';
 import ToggleButton from '../Button/ToggleButton';
+import { useTheme } from '@context/ThemeProvider';
 
 export default function NavBar() {
   const navigate = useNavigate();
 
-  const handleThemeChange = () => {
-    theme.color_bg = '#ffffff';
-  };
-
   const handleClick = (path: string) => {
     navigate(path);
   };
+
+  const { toggleTheme } = useTheme();
+
   return (
     <NavBarStyled>
       <div className="logo">
-        <img src="/public/logo/6tm_title-001.svg" alt="" />
+        <img src="/logo/6tm_title-001.svg" alt="" className="logo__img-1" />
+        <img src="/logo/6tm_title-002.png" alt="" className="logo__img-2" />
       </div>
-      <div className="theme" onClick={handleThemeChange}>
-        <ToggleButton />
-      </div>
-      <div className="links">
-        <div className="link" onClick={() => handleClick('/')}>
-          <a>HOME</a>
-        </div>
+      <div className="right">
         <div className="link" onClick={() => handleClick('/login')}>
-          <a>LOGIN</a>
+          <p>HOME</p>
         </div>
+        <a className="link" href="http://localhost:8000/login">
+          <p>LOGIN</p>
+        </a>
+
+        <ToggleButton onClick={() => toggleTheme()} />
       </div>
     </NavBarStyled>
   );
 }
 
 const NavBarStyled = styled.nav`
+  .logo {
+    width: min(calc(100% - 8rem), 40rem);
+    height: 100%;
+    padding: 1rem 0;
+    &__img-1 {
+      height: 100%;
+      display: block;
+    }
+    &__img-2 {
+      height: 100%;
+      display: none;
+    }
+    @media only screen and (max-width: 600px) {
+      &__img-1 {
+        height: 100%;
+        display: none;
+      }
+      &__img-2 {
+        height: 100%;
+        display: block;
+      }
+    }
+  }
   position: fixed;
   width: 100%;
   height: 8rem;
-  background-color: ${theme.color_bg};
+  background-color: #1f1f1f;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 3%;
   padding-right: 3%;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 7px 31px 19px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 20px 19px 10px rgba(0, 0, 0, 0.15);
   z-index: 100;
-  .links {
+  .right {
     color: white;
-    width: 15%;
+    flex-grow: 1;
     display: flex;
-    justify-content: space-around;
-    a {
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    .link {
+      text-decoration: none;
+      color: white;
+    }
+    p {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -73,10 +103,10 @@ const NavBarStyled = styled.nav`
       text-decoration: none;
       cursor: pointer;
     }
-    a:hover {
+    p:hover {
       color: #fff;
     }
-    a::before {
+    p::before {
       content: '';
       position: absolute;
       display: block;
@@ -87,7 +117,7 @@ const NavBarStyled = styled.nav`
       background-color: #fff;
       transition: all 0.3s ease;
     }
-    a:hover::before {
+    p:hover::before {
       width: 100%;
     }
   }

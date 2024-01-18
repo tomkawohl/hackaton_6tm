@@ -3,7 +3,7 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: liber4lis
  * -----
  * HISTORY:
@@ -26,8 +26,8 @@
   align-items: center;
   padding: 0 0.8rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--color-accent-1);
+  background-color: var(--color-accent-2);
   &__icon-left {
     color: var(--color-text);
     font-size: 2.5rem;
@@ -82,8 +82,8 @@
   overflow-y: scroll;
   width: min(calc(100% - 4rem), 80rem);
   margin: 8rem auto 0 auto;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--color-accent-2);
+  border: 1px solid var(--color-accent-1);
   border-radius: 2rem;
   -ms-overflow-style: none;
   scrollbar-width: none;

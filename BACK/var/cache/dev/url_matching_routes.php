@@ -10,6 +10,10 @@ return [
     [ // $staticRoutes
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
         '/api/employees' => [[['_route' => 'app_api', '_controller' => 'App\\Controller\\ApiController::fetchData'], null, null, null, false, false, null]],
+        '/api/employees/agency' => [[['_route' => 'app_api/agency', '_controller' => 'App\\Controller\\ApiController::getByAgency'], null, null, null, false, false, null]],
+        '/api/employees/team' => [[['_route' => 'app_api/team', '_controller' => 'App\\Controller\\ApiController::getByTeam'], null, null, null, false, false, null]],
+        '/api/employees/job' => [[['_route' => 'app_api/job', '_controller' => 'App\\Controller\\ApiController::getByJob'], null, null, null, false, false, null]],
+        '/api/employees/firstName' => [[['_route' => 'app_api/firstName', '_controller' => 'App\\Controller\\ApiController::getByFirstName'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'homepage', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/persons' => [[['_route' => 'persons_index', '_controller' => 'App\\Controller\\PersonController::index'], null, null, null, false, false, null]],

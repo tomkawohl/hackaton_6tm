@@ -3,8 +3,8 @@
  * Created Date: Tuesday, January 16th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Tue Jan 16 2024
- * Modified By: liber4lis
+ * Last Modified: Thu Jan 18 2024
+ * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
  * Date      	By	Comments
@@ -18,5 +18,11 @@
     position: absolute;
     left: -2rem;
     top: 0;
+    &.avatar {
+      width: 20rem;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }

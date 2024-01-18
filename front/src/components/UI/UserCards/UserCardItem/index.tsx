@@ -3,7 +3,7 @@
  * Created Date: Tuesday, January 16th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -11,7 +11,7 @@
  * ----------	---	--------------------------------
  */
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { UserCardI } from '@interfaces/UserCardI';
 import ProfilePicture from './ProfilePicture';
@@ -21,9 +21,10 @@ import ProfileName from './ProfileName';
 
 type Props = {
   item: UserCardI;
+  setCurrentUser: React.Dispatch<UserCardI>;
 };
 
-const UserCardItem = ({ item }: Props) => {
+const UserCardItem = ({ item, setCurrentUser }: Props) => {
   const [cardIsHover, setCardIsHovered] = useState<boolean>(false);
 
   const cardRef = useRef<HTMLDivElement>(null);
@@ -35,12 +36,17 @@ const UserCardItem = ({ item }: Props) => {
     const leave = () => {
       setCardIsHovered(false);
     };
-    cardRef.current?.addEventListener('mouseenter', enter);
+    const openModal = () => {
+      setCurrentUser(item);
+    };
+    cardRef.current?.addEventListener('mouseover', enter);
     cardRef.current?.addEventListener('mouseleave', leave);
+    cardRef.current?.addEventListener('click', openModal);
 
     return () => {
-      cardRef.current?.removeEventListener('mouseenter', enter);
+      cardRef.current?.removeEventListener('mouseover', enter);
       cardRef.current?.removeEventListener('mouseleave', leave);
+      cardRef.current?.removeEventListener('click', openModal);
     };
   });
 
@@ -51,7 +57,7 @@ const UserCardItem = ({ item }: Props) => {
         lastname={item.nom}
         isHovered={cardIsHover}
       />
-      <ProfilePicture />
+      <ProfilePicture data={item} />
       <ProfileInfo isHovered={cardIsHover} data={item} />
     </div>
   );

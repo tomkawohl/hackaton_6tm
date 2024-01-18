@@ -3,14 +3,15 @@
  * Created Date: Tuesday, January 16th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
- * Modified By: Nathan Coquelin
+ * Last Modified: Thu Jan 18 2024
+ * Modified By: liber4lis
  * -----
  * HISTORY:
  * Date      	By	Comments
  * ----------	---	--------------------------------
  */
 
+import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import './styles.scss';
 import { UserCardI } from '@interfaces/UserCardI';
@@ -35,6 +36,7 @@ const ProfileInfo = ({ isHovered, data }: Props) => {
       left: '100%',
     },
   };
+
   return (
     <AnimatePresence>
       {isHovered && (

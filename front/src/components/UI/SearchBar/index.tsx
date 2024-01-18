@@ -3,7 +3,7 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -24,6 +24,8 @@ interface Props {
   isLoading: 'empty' | 'loading' | 'loaded' | 'writting';
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   suggestions: { type: string; suggestion: string; distance: number }[];
+  isSuggestionOpen: boolean;
+  setIsSuggestionOpen: React.Dispatch<boolean>;
 }
 
 const SearchBar = ({
@@ -32,6 +34,8 @@ const SearchBar = ({
   isLoading,
   handleInputChange,
   suggestions,
+  isSuggestionOpen,
+  setIsSuggestionOpen,
 }: Props) => {
   return (
     <div className="search">
@@ -49,6 +53,7 @@ const SearchBar = ({
               className="search-bar__delete"
               onClick={() => {
                 setInput('');
+                setIsSuggestionOpen(false);
               }}
             />
           )}
@@ -59,13 +64,14 @@ const SearchBar = ({
           <div className="search-bar__loader"></div>
         )}
       </div>
-      {input.length !== 0 && (
+      {isSuggestionOpen && (
         <div className="search__suggestions">
           {suggestions.map((item) => (
             <SearchSuggestionItem
               key={Math.random()}
               data={item}
               setInput={setInput}
+              setIsSuggestionOpen={setIsSuggestionOpen}
             />
           ))}
         </div>

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Person;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -29,6 +30,8 @@ class PersonCrudController extends AbstractCrudController
             TextField::new('poste'),
             TextField::new('equipe'),
             TextField::new('agence'),
+            TextField::new('description'),
+            IntegerField::new('note'),
             ImageField::new('photo_pro')
                 ->setBasePath('/upload/persons_photos')
                 ->setUploadDir('public/upload/persons_photos')

@@ -3,7 +3,7 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -11,21 +11,27 @@
  * ----------	---	--------------------------------
  */
 
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Home, LoginPage } from '@routes/index';
+import { ThemeProvider } from './context';
+import { Curve } from './components';
 
 function App() {
   return (
     <>
+      <Curve backgroundColor={'#1f1f1f'} />
       <div className="container">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginPage />} />
-            {/* <Route path="/intra" element={<Intra />} errorElement={<IntraError />} */}
-          </Routes>
-        </BrowserRouter>
+        <ThemeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<LoginPage />} />
+              {/* <Route path="/intra" element={<Intra />} errorElement={<IntraError />} */}
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
       </div>
     </>
   );

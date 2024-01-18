@@ -3,7 +3,7 @@
  * Created Date: Tuesday, January 16th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -11,15 +11,27 @@
  * ----------	---	--------------------------------
  */
 
+import React from 'react';
+
 import UserCardItem from './UserCardItem';
 import './styles.scss';
 import { UserCardI } from '@interfaces/UserCardI';
 
-const UserCards = ({ data }: { data: UserCardI[] }) => {
+const UserCards = ({
+  data,
+  setCurrentUser,
+}: {
+  data: UserCardI[];
+  setCurrentUser: React.Dispatch<UserCardI>;
+}) => {
   return (
     <div className="user-card__container">
       {data.map((item) => (
-        <UserCardItem key={Math.random()} item={item} />
+        <UserCardItem
+          key={Math.random()}
+          item={item}
+          setCurrentUser={setCurrentUser}
+        />
       ))}
     </div>
   );

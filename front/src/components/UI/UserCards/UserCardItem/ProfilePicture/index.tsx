@@ -3,7 +3,7 @@
  * Created Date: Tuesday, January 16th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Wed Jan 17 2024
+ * Last Modified: Thu Jan 18 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -11,25 +11,28 @@
  * ----------	---	--------------------------------
  */
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './styles.scss';
+import { UserCardI } from '@interfaces/UserCardI';
 
-const ProfilePicture = () => {
-  // const imageUrlPro =
-  //   data.photo_pro || 'https://api.dicebear.com/7.x/avataaars/svg';
-  // const imageUrlFun = data.photo_fun;
+const ProfilePicture = ({ data }: { data: UserCardI }) => {
   const [index, setIndex] = useState<number>(1);
   const [blur, setBlur] = useState<number>(0);
+  const [loadedImgUrl, setLoadedImgUrl] = useState<string>(
+    `https://api.dicebear.com/7.x/avataaars/svg?seed=${Math.random()}`
+  );
 
   const imageRef = useRef<HTMLDivElement>(null);
 
-  const imageUrlPro = '/tmp/001.webp';
-  const imageUrlFun = '/tmp/002.webp';
   const delay = 100;
 
-  let loadedImgUrl = 'https://api.dicebear.com/7.x/avataaars/svg';
-  if (imageUrlPro) loadedImgUrl = imageUrlPro;
+  const imageUrlPro = data.photo_pro;
+  const imageUrlFun = data.photo_fun;
+
+  useEffect(() => {
+    if (imageUrlPro) setLoadedImgUrl(imageUrlPro);
+  }, []);
 
   useEffect(() => {
     let time: ReturnType<typeof setTimeout>;
@@ -64,9 +67,11 @@ const ProfilePicture = () => {
     <div className="user-card__profile-picture" ref={imageRef}>
       <img
         src={loadedImgUrl}
-        className="user-card__profile-picture--img"
+        className={`user-card__profile-picture--img ${
+          data.photo_pro || 'avatar'
+        }`}
         style={{
-          display: index === -1 ? 'none' : 'block',
+          display: index === -1 && imageUrlFun ? 'none' : 'block',
         }}
       />
       {imageUrlFun && (
