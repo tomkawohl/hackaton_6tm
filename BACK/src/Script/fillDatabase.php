@@ -9,7 +9,6 @@ $checkTable = $conn->query("SELECT COUNT(*) FROM person");
 $tableIsEmpty = ($checkTable->fetchColumn() == 0);
 
 if ($tableIsEmpty == false) {
-    echo "Database is already set\n";
     return 0;
 }
 
@@ -50,8 +49,6 @@ foreach ($data as $person) {
         die("Error inserting person: " . $e->getMessage());
     }
 }
-
-echo "Database set\n";
 
 $stmt->closeCursor();
 $db->breakConnection();

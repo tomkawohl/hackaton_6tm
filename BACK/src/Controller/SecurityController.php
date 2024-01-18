@@ -31,7 +31,7 @@ class SecurityController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-
+        
         if ($request->isMethod('POST')) {
             $email = $request->request->get('my_custom_username_field'); // Changer avec le nom de votre champ username
             $password = $request->request->get('my_custom_password_field'); // Changer avec le nom de votre champ password
@@ -57,6 +57,7 @@ class SecurityController extends AbstractController
             // parameters usually defined in Symfony login forms
             'error' => $error,
             'last_username' => $lastUsername,
+
 
             // OPTIONAL parameters to customize the login form:
 

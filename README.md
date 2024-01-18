@@ -21,17 +21,15 @@ All you need is : <br>
 ## Installation and usage
 * Clone the repository:<br>
 `git clone git@github.com:EpitechPromo2027/B-EPI-310-REN-3-1-hackathonweek-martin.bellot.git`
-* Run the environment:<br>
-`docker-compose up --build`
-
-* When running the environment for the first time, you need to initialize the database by doing: <br>
-- [ON OTHER TERMINAL] <br>
+* Run the environment (at root of folder BACK):<br>
+1. `docker-compose build`
+2. `docker-compose up -d` (-d allow to continue to enter commands in your terminal while the containers are running)
 - To initialise the structure of database :<br>
-* `docker-compose exec symfony php bin/console make:migration`
+* `docker-compose exec symfony php bin/console make:migration`<br>
 * `docker-compose exec symfony php bin/console doctrine:migrations:migrate`
-- To fill tables of the database : <br>
-`docker exec -it back-symfony-1 /bin/bash`
-`php src/Script/fillDatabase.php`
+- To fill tables of the database with default elements: <br>
+*`pip install mysql-connector-python`<br>
+* `python3 ../INIT_DB/init_db.py`<br>
 
 * Visit url:<br>
     * localhost:8000/login (back-office)

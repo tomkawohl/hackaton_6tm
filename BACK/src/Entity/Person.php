@@ -34,6 +34,18 @@ class Person
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo_fun = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $otherDescription = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $note = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $visited = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -126,6 +138,54 @@ class Person
     public function setPhotoFun(?string $photo_fun): static
     {
         $this->photo_fun = $photo_fun;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getOtherDescription(): ?string
+    {
+        return $this->otherDescription;
+    }
+
+    public function setOtherDescription(?string $otherDescription): static
+    {
+        $this->otherDescription = $otherDescription;
+
+        return $this;
+    }
+
+    public function getNote(): ?int
+    {
+        return $this->note;
+    }
+
+    public function setNote(?int $note): static
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getVisited(): ?int
+    {
+        return $this->visited;
+    }
+
+    public function setVisited(?int $visited): static
+    {
+        $this->visited = $visited;
 
         return $this;
     }

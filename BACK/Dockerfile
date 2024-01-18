@@ -25,8 +25,6 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 
 RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
-RUN apt-get install -y npm
-
 #RUN stat /var/www/html/public/index.php
 
 #RUN composer require symfony/maker-bundle --dev

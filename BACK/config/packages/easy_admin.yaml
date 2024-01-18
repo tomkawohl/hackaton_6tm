@@ -2,7 +2,7 @@
 easy_admin:
     entities:
         - class: App\Entity\Person
-          label: 'Person'
+          label: 'Membres'
           list:
             - { property: 'photo_pro', label: 'Photo', type: 'image' }
             - { property: 'photo_fun', label: 'Photo', type: 'image' }
@@ -10,6 +10,8 @@ easy_admin:
             - { property: 'photo_pro', label: 'Photo', type: 'vich_image' }
             - { property: 'photo_fun', label: 'Photo', type: 'vich_image' }
           # Configure other options for this entity
+        - class: App\Entity\Administrators
+          label: "Administrateurs"
     allow_all_actions: true
     design:
       login:

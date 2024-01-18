@@ -14,9 +14,14 @@
 import styled from 'styled-components';
 import { default as theme } from '../../theme/theme';
 import { useNavigate } from 'react-router-dom';
+import ToggleButton from '../Button/ToggleButton';
 
 export default function NavBar() {
   const navigate = useNavigate();
+
+  const handleThemeChange = () => {
+    theme.color_bg = '#ffffff';
+  };
 
   const handleClick = (path: string) => {
     navigate(path);
@@ -25,6 +30,9 @@ export default function NavBar() {
     <NavBarStyled>
       <div className="logo">
         <img src="/public/logo/6tm_title-001.svg" alt="" />
+      </div>
+      <div className="theme" onClick={handleThemeChange}>
+        <ToggleButton />
       </div>
       <div className="links">
         <div className="link" onClick={() => handleClick('/')}>

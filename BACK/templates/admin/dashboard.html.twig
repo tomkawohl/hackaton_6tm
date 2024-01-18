@@ -1,0 +1,17 @@
+{# templates/admin/dashboard.html.twig #}
+
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Tableau de bord{% endblock %}
+
+{% block content %}
+    <div>
+        <img src="/imgs/logo_colors.png" alt="Image du tableau de bord administrateur" style="max-width: 10%; height: auto; margin-top: 20px;">
+        <p><br><br><br>Bienvenue dans le tableau de bord administrateur.<br>Ce panneau vous permet de gérer les membres du Trombinoscope et d'effectuer des tâches de gestion des utilisateurs.</p>
+        
+        <ul>
+            <li><a href="{{ person_url }}">Gérer les membres du Trombinoscope</a></li>
+            <li><a href="{{ admin_url }}">Gérer les administrateurs</a></li>
+        </ul>
+    </div>
+{% endblock %}
