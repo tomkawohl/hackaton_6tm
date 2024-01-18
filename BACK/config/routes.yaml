@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+persons_index:
+    path: /persons
+    controller: App\Controller\PersonController::index
+
+person_create:
+    path: /persons/create
+    controller: App\Controller\PersonController::create

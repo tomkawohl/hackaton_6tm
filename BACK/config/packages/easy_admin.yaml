@@ -3,5 +3,15 @@ easy_admin:
     entities:
         - class: App\Entity\Person
           label: 'Person'
+          list:
+            - { property: 'photo_pro', label: 'Photo', type: 'image' }
+            - { property: 'photo_fun', label: 'Photo', type: 'image' }
+          edit:
+            - { property: 'photo_pro', label: 'Photo', type: 'vich_image' }
+            - { property: 'photo_fun', label: 'Photo', type: 'vich_image' }
           # Configure other options for this entity
     allow_all_actions: true
+    design:
+      login:
+        # Nom de la route pour votre page de connexion
+        route: 'login'

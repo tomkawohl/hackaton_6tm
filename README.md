@@ -14,20 +14,30 @@ Here are the goals:
 * [![Php][Php-img]](https://www.php.net/manual/fr/intro-whatis.php)
 
 ## Prerequisites
-This project is made with Php and React. <br>
-You can install prerequisites by using Makefile (see Installation and usage) or by installing it by yourself :
-* Composer -> https://getcomposer.org/download/
-* Symfony -> https://symfony.com/doc/current/setup.html
-* React -> https://react.dev/learn/installation
+This project is made with Php and React. We run the environment using Docker <br>
+All you need is : <br>
+* Docker -> https://docs.docker.com/get-docker/
 
 ## Installation and usage
 * Clone the repository:<br>
 `git clone git@github.com:EpitechPromo2027/B-EPI-310-REN-3-1-hackathonweek-martin.bellot.git`
-* Install project with Makefile using
-`make setup`
-* Run php server
-`Symfony serve` at root of back folder. <br>
-Run localhost on your browser.
+* Run the environment:<br>
+`docker compose up --build`
+
+* When running the environment for the first time, you need to initialize the database by doing: <br>
+- [ON OTHER TERMINAL] <br>
+- To initialise the structure of database :<br>
+* `docker-compose exec symfony php bin/console make:migration`
+* `docker-compose exec symfony php bin/console doctrine:migrations:migrate`
+- To fill tables of the database : <br>
+`docker exec -it back-symfony-1 /bin/bash`
+`php src/Script/fillDatabase.php`
+
+* Visit url:<br>
+    * localhost:8000/login (back-office)
+    * localhost:8000/api/ (api)
+    * localhost:5173 (website)
+    * localhost:8081 (Data base)
 
 ## Authors
 - [Martin Bellot](https://github.com/martinbellot)

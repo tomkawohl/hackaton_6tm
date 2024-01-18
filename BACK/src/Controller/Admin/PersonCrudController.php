@@ -8,6 +8,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 class PersonCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -19,9 +23,21 @@ class PersonCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            #IdField::new('id'), <- AUTOINCREMENT
+            TextField::new('nom'),
+            TextField::new('prenom'),
+            TextField::new('poste'),
+            TextField::new('equipe'),
+            TextField::new('agence'),
+            ImageField::new('photo_pro')
+                ->setBasePath('/upload/persons_photos')
+                ->setUploadDir('public/upload/persons_photos')
+                ->setLabel('Photo'),
+            ImageField::new('photo_fun')
+                ->setBasePath('/upload/persons_photos')
+                ->setUploadDir('public/upload/persons_photos')
+                ->setLabel('Photo'),
+            #TextEditorField::new('description'),
         ];
     }
 }

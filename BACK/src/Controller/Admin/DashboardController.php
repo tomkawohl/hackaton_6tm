@@ -11,12 +11,15 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
+
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
+    #[IsGranted('ROLE_USER')]
     public function index(): Response
     {
-        //return parent::index();
 
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
         $url = $routeBuilder->setController(PersonCrudController::class)->generateUrl();
@@ -42,7 +45,9 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('6TM Trombinoscope');
+            ->setTitle('<img src="/imgs/logo.svg">');
+            //->disableLightMode();
+            
     }
 
     public function configureMenuItems(): iterable

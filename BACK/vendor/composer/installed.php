@@ -163,6 +163,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'jms/metadata' => array(
+            'pretty_version' => '2.8.0',
+            'version' => '2.8.0.0',
+            'reference' => '7ca240dcac0c655eb15933ee55736ccd2ea0d7a6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jms/metadata',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'nikic/php-parser' => array(
             'pretty_version' => 'v4.18.0',
             'version' => '4.18.0.0',
@@ -171,6 +180,27 @@
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'pentatrion/vite-bundle' => array(
+            'pretty_version' => 'v6.3.2',
+            'version' => '6.3.2.0',
+            'reference' => '120e0e988ada3a98c6af81813c88ec33028effcb',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../pentatrion/vite-bundle',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/async-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+            ),
+        ),
+        'php-http/client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+            ),
         ),
         'psr/cache' => array(
             'pretty_version' => '3.0.0',
@@ -227,6 +257,12 @@
             'dev_requirement' => false,
         ),
         'psr/event-dispatcher-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
+        'psr/http-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
@@ -427,6 +463,30 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfony/http-client' => array(
+            'pretty_version' => 'v7.0.2',
+            'version' => '7.0.2.0',
+            'reference' => 'db714986d3b84330bb6196fdb201c9f79b3a8853',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/http-client',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/http-client-contracts' => array(
+            'pretty_version' => 'v3.4.0',
+            'version' => '3.4.0.0',
+            'reference' => '1ee70e699b41909c209a0c930f11034b93578654',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/http-client-contracts',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/http-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '3.0',
+            ),
+        ),
         'symfony/http-foundation' => array(
             'pretty_version' => 'v7.0.0',
             'version' => '7.0.0.0',
@@ -462,6 +522,15 @@
             'install_path' => __DIR__ . '/../symfony/maker-bundle',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'symfony/mime' => array(
+            'pretty_version' => 'v7.0.0',
+            'version' => '7.0.0.0',
+            'reference' => '0a2fff95c1a10df97f571d67e76c7ae0f0d4f535',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/mime',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'symfony/options-resolver' => array(
             'pretty_version' => 'v7.0.0',
@@ -508,6 +577,15 @@
             'reference' => 'e46b4da57951a16053cd751f63f4a24292788157',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-intl-icu',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-intl-idn' => array(
+            'pretty_version' => 'v1.28.0',
+            'version' => '1.28.0.0',
+            'reference' => 'ecaafce9f77234a6a449d29e49267ba10499116d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-intl-idn',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -790,6 +868,15 @@
             'reference' => '9d15f0ac07f44dc4217883ec6ae02fd555c6f71d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'vich/uploader-bundle' => array(
+            'pretty_version' => '2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => '0d748cfe676bcf894b3f324f69797c9b9d124aa5',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../vich/uploader-bundle',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

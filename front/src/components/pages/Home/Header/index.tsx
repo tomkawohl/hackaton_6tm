@@ -3,7 +3,7 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Mon Jan 15 2024
+ * Last Modified: Wed Jan 17 2024
  * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
@@ -13,12 +13,12 @@
 
 import { Description } from '@components/UI';
 import './styles.scss';
+import NavBar from '@components/UI/Nav/NavBar';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <>
+      <NavBar />
       <div className="header">
         <div className="header__title">Notre équipe</div>
         <div className="header__left">

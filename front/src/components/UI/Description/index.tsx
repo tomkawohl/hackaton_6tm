@@ -3,19 +3,18 @@
  * Created Date: Friday, November 17th 2023
  * Author: NathanCoquelin
  * -----
- * Last Modified: Mon Dec 25 2023
- * Modified By: NateCo_001
+ * Last Modified: Wed Jan 17 2024
+ * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
  * Date      	By	Comments
  * ----------	---	--------------------------------
  */
+import React, { useRef } from 'react';
+import { Variants, motion, useInView } from 'framer-motion';
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-
-import "./style.scss";
-import { slideUp } from "./animation";
+import './style.scss';
+import { slideUp } from './animation.ts';
 
 type Props = {
   text: string;
@@ -37,15 +36,15 @@ const Description = ({
   return (
     <div style={containerStyle && containerStyle} className="description">
       <p style={textStyle}>
-        {text.split(" ").map((word, index) => {
+        {text.split(' ').map((word, index) => {
           return (
             <span key={index} className="description__mask">
               <motion.span
                 ref={descriptionRef}
                 className={`description__word ${className}`}
-                variants={slideUp}
+                variants={slideUp as Variants}
                 custom={index}
-                animate={isInView ? "open" : "closed"}
+                animate={isInView ? 'open' : 'closed'}
                 key={index}
                 style={spanStyle && spanStyle}
               >

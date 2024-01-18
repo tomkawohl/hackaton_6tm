@@ -3,26 +3,38 @@
  * Created Date: Monday, January 15th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Tue Jan 16 2024
- * Modified By: liber4lis
+ * Last Modified: Wed Jan 17 2024
+ * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
  * Date      	By	Comments
  * ----------	---	--------------------------------
  */
 
-import { useState } from 'react';
 import { Footer, HomeHeader, SearchBar, UserCards } from '@components/index';
 
-import { default as data } from '@data/data.json';
+import { useSearch } from '@hooks/index';
 
 const Home = () => {
-  const [input, setInput] = useState<string>('');
+  const {
+    filteredUsers,
+    setSearch,
+    search,
+    isLoading,
+    handleInputChange,
+    suggestions,
+  } = useSearch();
   return (
     <>
       <HomeHeader />
-      <SearchBar input={input} setInput={setInput} />
-      <UserCards data={data} />
+      <SearchBar
+        handleInputChange={handleInputChange}
+        setInput={setSearch}
+        input={search}
+        isLoading={isLoading}
+        suggestions={suggestions}
+      />
+      <UserCards data={filteredUsers} />
       <Footer />
     </>
   );

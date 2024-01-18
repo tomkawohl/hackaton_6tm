@@ -11,7 +11,7 @@
  * ----------	---	--------------------------------
  */
 
-export { default as Nav } from './Nav';
+export { default as Nav } from './Nav/NavBar';
 export { default as Description } from './Description';
 export { default as SearchBar } from './SearchBar';
 export { default as Footer } from './Footer';

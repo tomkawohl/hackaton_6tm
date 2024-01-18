@@ -29,7 +29,8 @@
       "@interfaces/*": ["interfaces/*"],
       "@data/*": ["data/*"],
       "@assets/*": ["assets/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@redux/*": ["redux/*"]
     }
   },
   "include": ["src"],

@@ -3,27 +3,23 @@
  * Created Date: Tuesday, January 16th 2024
  * Author: Nathan Coquelin
  * -----
- * Last Modified: Tue Jan 16 2024
- * Modified By: liber4lis
+ * Last Modified: Wed Jan 17 2024
+ * Modified By: Nathan Coquelin
  * -----
  * HISTORY:
  * Date      	By	Comments
  * ----------	---	--------------------------------
  */
 
-import { UserCardI } from '@interfaces/UserCardI';
 import UserCardItem from './UserCardItem';
 import './styles.scss';
+import { UserCardI } from '@interfaces/UserCardI';
 
-type Props = {
-  data: UserCardI[];
-};
-
-const UserCards = ({ data }: Props) => {
+const UserCards = ({ data }: { data: UserCardI[] }) => {
   return (
     <div className="user-card__container">
-      {data.map((item, index) => (
-        <UserCardItem key={index} item={item} />
+      {data.map((item) => (
+        <UserCardItem key={Math.random()} item={item} />
       ))}
     </div>
   );

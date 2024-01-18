@@ -1,0 +1,34 @@
+/*
+ * File: /src/components/UI/SearchBar/SearchSuggestionItem/styles.scss
+ * Created Date: Wednesday, January 17th 2024
+ * Author: Nathan Coquelin
+ * -----
+ * Last Modified: Wed Jan 17 2024
+ * Modified By: liber4lis
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	--------------------------------
+ */
+
+@import '../../../../sass/main.scss';
+
+.search__suggestions--item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  &--icon {
+    color: white;
+    font-size: 2.8rem;
+    display: block;
+  }
+  &--text {
+    font-size: 4 rem;
+    display: block;
+    flex-grow: 1;
+  }
+}

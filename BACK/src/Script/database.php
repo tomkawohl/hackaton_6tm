@@ -1,6 +1,12 @@
 <?php
+/*
+require_once __DIR__ . '/../../vendor/autoload.php';
+use Dotenv\Dotenv;
 
-//to verify : use dotenv
+$dotenvPath = realpath(__DIR__ . '/../../');
+$dotenv = Dotenv::createImmutable($dotenvPath);
+$dotenv->load();
+*/
 
 class Database
 {
@@ -8,10 +14,16 @@ class Database
     private $pdo;
     private function __construct()
     {
+        /*
+        $dbname = $_ENV['DB_NAME'];
+        $user = $_ENV['DB_USER'];
+        $password = $_ENV['DB_PASSWORD'];
+        $host = $_ENV['DB_HOST'];
+        */
         $dbname = "your_database_name";
+        $host = "db";
         $user = "root";
         $password = "root_password";
-        $host = "db";
 
         try {
 
